@@ -1,0 +1,104 @@
+#middle{
+	font-family: 'Microsoft YaHei', Verdana;
+}
+
+#upper{
+	height: 2em;
+	margin: 1em auto; 
+	color: #12b812;
+	background-color: #c7f56b;
+}
+
+#month{
+	float: left;
+	width: 30em;
+	height: 2em;
+}
+
+#displaymonth{
+	display: block;
+	list-style: none;
+	font-size: 1.5em;
+	padding: 0.3em 0;	
+}
+
+#displaymonth li{
+	display: block;
+	float: left;
+	width: 15em
+	text-align: center;
+	padding: 0 1.5em;
+}
+
+#select{
+	float: left;
+	width: 34em;
+	height: 2em;
+}
+
+#selectmonth{
+	display: block;
+	list-style: none;
+	font-size: 1em;
+	padding: 0.3em 0;
+}
+
+#selectmonth li{
+	display: block;
+	float: left;
+	width: 10em
+	text-align: center;
+	padding: 0 1em;
+}
+
+
+ul.weektitle{
+	width: 49em;
+	height: 2em;
+	margin: 0 auto;
+	display: block;
+	background-color: #969;
+	padding-top: 0.5em;
+	margin: 1em auto 0 auto;
+}
+
+.weektitle li{
+	display: block;
+	float: left;
+	width: 7em;
+	text-align: center;
+}
+
+
+ul.calendar{
+	width: 49em;
+	margin: 0 auto;
+	display: block;
+	min-height: 200px;
+}
+
+li{
+	list-style: none;
+}
+
+li li{
+	width: 7em;
+	height: 5em;
+	float: left;
+	margin-top: 0.3em;
+	background-color: #9C3;
+}
+
+
+ul li ul li p{
+	text-align: center;
+	font-size: .7em;
+	display: block;
+	height: auto;
+	width: auto;
+	background: none;
+	margin: 0;
+	padding: .2em;
+	float: none;
+}
+	

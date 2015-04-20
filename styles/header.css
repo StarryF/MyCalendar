@@ -4,19 +4,17 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li{
 	line-height: 18px;
 }
 
-p, h2, h3, h4, h5, h6{
+h2, h3, h4, h5, h6{
 	margin-bottom: 18px;
 }
 
 #page{
-	width: 76%;
-	height: 90%;
-	margin-left: 12%;
-	background-color: #C9F;
+	width: 64em;
+	margin: auto;
 }
 
 #header{
-	height: 108px;
+	height: 6em;
 	background-color: #f9f9b0;
 }
 
@@ -24,8 +22,8 @@ p, h2, h3, h4, h5, h6{
 	float: left;
 	width: 72px;
 	height: 72px;
-	margin-left: 10%;
-	margin-top: 18px;
+	margin-left: 1em;
+	margin-top: 1em;
 }
 #header #title{
 	float: left;
@@ -38,33 +36,3 @@ p, h2, h3, h4, h5, h6{
 	color: #6d6d03;
 }
 
-#upper{
-	line-height: 36px;
-	font-family: 'Microsoft YaHei', Verdana;
-	height: 36px;
-	background-color:#0C0;
-}
-
-#month ul{
-	list-style: none;
-	font-size: 1.5em;
-	background-color: #00C;
-}
-#month ul li{
-	display: block;
-	float: left;
-	width: 10%;
-	padding: 0 1% 0 1%;
-	background-color:#990;
-}
-
-#yearselect ul{
-	list-style: none;
-	font-size: 1.5em;
-}
-#yearselect ul li{
-	float: left;
-	display: block;
-	width: 10%;
-	padding: 0 1% 0 1%;
-}

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   	<title>My Calendar</title>
     <link rel="stylesheet" type="text/css" href="styles/header.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/middle.css"/>
   </head>
 
   <body>
@@ -19,49 +20,47 @@
   	  <div id="middle"><!--start of the middle wrapper-->
   	  	<div id="upper"><!--start of the upper wrapper-->
   	  	  <div id="month">
-            <ul>
+            <ul id="displaymonth">
               <li>五月</li>
-              <li>May</li>
               <li>北京时间</li>
               <li>[12:24:00]</li>
             </ul>
+          </div>
+          
+          <div id="select">            
+            <ul id="selectmonth">
+              <li class="arrow">
+                <a id="lastyear" title="last year" href="#">左边</a>
+              </li>
+              <li>
+                <a id="yeardrop" class="dropdown" href="#">2015年</a>
+              </li>
+              <li class="arrow">
+                <a id="nextyear" title="next year" href="#">右边</a>
+              </li>
+              <li class="arrow">
+                <a id="lastmonth" title="last month" href="#">左边</a>
+              </li>
+              <li>
+                <a id="monthdrop" class="dropdown" href="#">5月</a>
+              </li>
+              <li class="arrow">
+                <a id="nextmonth" title="next month" href="#">右边</a>
+              </li>
+              <li>
+                <a id="today" href="#">返回今天</a>
+              </li>  
+            </ul>
   	  	  </div>
-  	 	  <div id="dateselect"><!--start of date select-->
-  	 	  	<div id="yearselect">
-              <ul>
-                <li>
-                  <a id="lastyear" title="last year" href="#"></a>
-                </li>
-                <li>
-                  <a id="yeardrop" class="dropdown" href="#">2015年</a>
-                </li>
-                <li>
-                  <a id="nextyear" title="next year" href="#"></a>
-                </li>
-                <li>
-                  <a id="lastmonth" title="last month" href="#"></a>
-                </li>
-                <li>
-                  <a id="monthdrop" class="dropdown" href="#">5月</a>
-                </li>
-                <li>
-                  <a id="nextmonth" title="next month" href="#"></a>
-                </li>
-                <li>
-                  <a id="today" href="#">返回今天</a>
-                </li>  
-              </ul>  	 	  	  
-  	 	  	</div>
-  	 	  	<div id="yearlist" class="dropdownlist" style="display: none;">
-  	 	  	</div>
-  	 	  	<div id="monthlist" class="dropdownlist" style="display: none;">
-  	 	  	</div>
+  	 	  <div id="yearlist" class="dropdownlist" style="display: none;">
+  	 	  </div>
+  	 	  <div id="monthlist" class="dropdownlist" style="display: none;">
   	 	  </div><!--end of date select-->
   	  	</div><!--end of the upper wrapper-->
   	  	
   	  	<div id="main"><!--start of the main wrapper-->
   	  	  <div id="week">
-  	  	  	<ul id="weektitle">
+  	  	  	<ul class="weektitle">
   	  	  	  <li>星期日</li>
   	  	  	  <li>星期一</li>
   	  	  	  <li>星期二</li>
@@ -73,9 +72,56 @@
   	  	  </div>
 
   	  	  <div id="weekday">
-  	  	  	<ul id="weekdaytitle">
-  	  	  	  <li>1号</li>
-  	  	  	  <li>2号</li>
+            <ul class="calendar" start="4">
+              <li id="lastmonth">
+              	<ul start="29">
+                  <li><p>30号</p></li>
+                  <li><p>31号</p></li>
+                </ul>
+              </li>
+              
+              <li id="thismonth">
+  	  	  	    <ul>
+                  <li><p>1号</p></li>
+                  <li><p>2号</p></li>
+                  <li><p>3号</p></li>
+                  <li><p>4号</p></li>
+                  <li><p>5号</p></li>
+                  <li><p>6号</p></li>
+                  <li><p>7号</p></li>
+                  <li><p>8号</p></li>
+                  <li><p>9号</p></li>
+                  <li><p>10号</p></li>
+                  <li><p>11号</p></li>
+                  <li><p>12号</p></li>
+                  <li><p>13号</p></li>
+                  <li><p>14号</p></li>
+                  <li><p>15号</p></li>
+                  <li><p>16号</p></li>
+                  <li><p>17号</p></li>
+                  <li><p>18号</p></li>
+                  <li><p>19号</p></li>
+                  <li><p>20号</p></li>
+                  <li><p>21号</p></li>
+                  <li><p>22号</p></li>
+                  <li><p>23号</p></li>
+                  <li><p>24号</p></li>
+                  <li><p>25号</p></li>
+                  <li><p>26号</p></li>
+                  <li><p>27号</p></li>
+                  <li><p>28号</p></li>
+                  <li><p>29号</p></li>
+                  <li><p>30号</p></li>
+                </ul>
+              </li>
+              
+              <li id="nextmonth">
+              	<ul>
+                  <li><p>1号</p></li>
+                  <li><p>2号</p></li>
+                  <li><p>3号</p></li>
+                </ul>
+              </li>
   	  	  	</ul>
   	  	  </div>
   	  	</div><!--end of the main wrapper-->
