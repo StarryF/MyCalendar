@@ -1,0 +1,178 @@
+body, p, h1, h2, h3, h4, h5, h6, ul, li, a{
+	margin: 0;
+	padding: 0;
+	line-height: 18px;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Microsoft YaHei', Verdana;
+}
+
+#page{
+	width: 49em;
+	margin: 0.2em auto;
+}
+
+#header{
+	position:relative;
+	height: 6em;
+	background-color: #B9F73E;
+	z-index: 3;
+}
+/*显示月份和当前时间*/
+#displaymonth{
+	float: left;	
+	width: 20em;
+}
+
+#display{
+	display: block;
+	float: left;
+	list-style: none;
+	padding: 0.3em 0;
+}
+
+/*显示当前月份*/
+#monthnow{
+	float: left;
+	display: block;
+	width: 2.6em;
+	padding-left: .8em;
+	line-height: 1em;
+	font-weight: 900;
+	font-size: 4em;
+}
+
+/*显示当前时间*/
+#timenowli{
+	float: left;
+	margin-top: 2.5em;
+	display: block;
+	font-size: 1.5em;
+	font-weight: 200;
+	width: 1.5em;
+}
+
+
+/*显示年、月、和返回今天，并可供选择*/
+#selectmonth{
+	float: left;
+	width: 29em;
+	height: 6em;
+}
+
+/*显示年、月和返回今天的列表*/
+#selectdate{
+	width: 29em;
+	margin-left: 2em;
+	display: block;
+	margin-top: 4em;
+
+}
+
+#selectdate li.larrow{
+	float: left;
+	display: block;
+	margin-left: 2em;
+}
+
+#selectdate li.today{
+	float: left;
+	display: block;
+	width: 5em;
+	margin-left: 2em;
+}
+
+#selectdate li.select{
+	float: left;
+	width: 5em;
+	height: 1.5em;
+	display: block;
+	text-align: center;
+}
+
+#selectdate li.arrow{
+	float: left;
+	display: block;
+}
+
+/*显示年份、月份*/
+#yearlist, #monthlistul{
+	display: none;
+	margin-top: 0.2em;
+}
+
+#monthlistul li{
+	display: block;
+	margin-left: 0.5em;
+}
+
+/*显示年份、月份的列表*/
+.alistof{
+	height: 18em;
+	width: 5.1em;
+	overflow: auto;
+	z-index: 100;
+}
+
+ul li.select ul.alistof li{
+	text-align: center;
+	background-color: #C9F76F;
+	width: 4em;
+	height: 1.5em;
+	float: none !important;
+}
+
+/*页中部分，显示日历的主体*/
+/*显示星期*/
+#middle{
+	position:relative;
+	z-index: 1;
+}
+
+#middle .weektitle li, li li{
+	display: block;
+	float: left;
+	width: 6.5em;
+	margin: 0.3em 0 0 0.3em;
+	box-shadow: 0 0 3px #008500;
+	border-bottom-right-radius: 10px;
+}
+
+#middle .weektitle li{
+	
+	color: #008500;
+	font-weight: bold;
+	text-align: center;
+	line-height: 2em;
+	background-color: #67E667;
+	border: .1em solid white;
+}
+
+#middle ul.calendar{
+	width: 49em;
+	color: #9FEE00;
+	margin: 0 auto;
+	display: block;
+	min-height: 200px;
+}
+
+#middle li li{
+	height: 6.5em;
+	border: .1em solid #67E667;
+}
+
+#middle ul li ul li span{
+	font-size: 1.2em;
+	text-align: center;
+	display: block;
+	line-height: 4.8em;
+	padding: .2em;
+}
+
+#middle #lastmonthul li{
+	opacity: 0.4;
+}
+
+#middle #nextmonthul li{
+	opacity: 0.4;
+}
