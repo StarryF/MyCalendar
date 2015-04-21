@@ -106,6 +106,15 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li, a{
 	margin-left: 0.5em;
 }
 
+.select a, .today a{
+	color: #A7A7A7;
+	font-weight: bold;
+}
+/*鼠标移动到年份或月份上时，改变颜色*/
+.select a:hover, .today a:hover{
+	color: #008500;
+}
+
 /*显示年份、月份的列表*/
 .alistof{
 	height: 18em;

@@ -49,7 +49,30 @@
 		//displayWorkDay();
 		//鼠标移动到上个月的几天，取出半透明效果
 		displayLastMonth(firstDayWeek, lastMonthUl);
+		//鼠标点击年份
+		var clickYear = document.getElementById("yeardrop");
+		var yearList = document.getElementById("yearlist");
+		dispalyYearList(clickYear, yearList, year);
 
+		//鼠标点击月份
+		var clickMonth = document.getElementById("monthdrop");
+		var monthList = document.getElementById("monthlistul");
+		displayMonthList(clickMonth, monthList);
+
+		//移动过去改变li样式
+		var calendarList = document.getElementById("recentmonthul").getElementsByTagName("li");
+		//whilemouseover(calendarList);
+		calendarList[10].onclick = function(event){  
+    		alert(event.type);  
+		};
+
+		//whilemouseover(calendarList);
+
+		$(".recentmonthul li").each(calendarList, function(i, value){
+			this;
+			alert(i);
+			alert(value);
+		})
 	};
 
 	function checkTime(i){
