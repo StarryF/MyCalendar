@@ -4,13 +4,14 @@ var calendar = {
 	month: null,
 
 	//获得year年month月的第一天是星期几
-	getFirstDay:function(year,month){
-		var firstDay = new Date(year, month, 1);//
+	getFirstDay:function(year, month){
+		var firstDay = new Date(year, month-1, 1);//
 		return firstDay.getDay();
 	},
 	
 	//获得year年month月的总天数
 	getMonthLength:function(year, month){
+		//得到下个月的第一天，算出这个月的最后一天
 		var nextMonth = new Date(year, month);
 		nextMonth.setHours(nextMonth.getHours() - 3);
 		monthLen = nextMonth.getDate();
@@ -18,12 +19,14 @@ var calendar = {
 	},
 
 	//创建日历
-	createCalendar:function(clist, date){
+	createCalendar:function(list, date){
 		calendar.year = date.getFullYear();	//获得年份
-		calendar.month = date.getMonth();	//获得月份
-		document.getElementById("yeardrop").innerHTML = calendar.year;
-		document.getElementById("monthnow").innerHTML = calendar.month+1 + "月";
-		calendar.clearCalendar(clist);
+		calendar.month = date.getMonth() + 1;	//获得月份
+		calendar.clearCalendar(list);
+
+		document.getElementById("yeardrop").innerHTML = calendar.year + "年";
+		document.getElementById("monthdrop").innerHTML = calendar.month + "月";
+		document.getElementById("monthnow").innerHTML = calendar.month + "月";
 
 		var lastMonthLen = calendar.getMonthLength(calendar.year, calendar.month-1);
 		var monthLen = calendar.getMonthLength(calendar.year, calendar.month);
@@ -49,12 +52,27 @@ var calendar = {
 
 	//清空日历
 	clearCalendar:function(list){
-
+		this.clist = list.getElementsByTagName("li");
+		var li1 = this.clist["lastmonth"];	//lastmonth
+		var li2 = this.clist["thismonth"];	//thismonth
+		var li3 = this.clist["nextmonth"];	//nextmonth
+		alert(this.clist.length);
+		var ul1 = li1.getElementsByTagName("lastmonthul");	//lastmonthul
+		var ul2 = li2.getElementsByTagName("recentmonthul");	//recentmonthul
+		var ul3 = li3.getElementsByTagName("nextmonthul");	//nextmonthul
+		var $ul1 = $(ul1);
+		var $ul2 = $(ul2);
+		var $ul3 = $(ul3);
+		$ul1.remove();
+		$ul2.remove();
+		$ul3.remove();
+		alert("ok");
+		
 	},
 
 	//主方法
 	init:function(list){
-		calendar.createCalendar(list, new Date(calendar.year, calendar.month, 1));
+		calendar.createCalendar(list, new Date());
 		//左年键，减去一年，重绘日历
 		$("#lastyear").click(function(){
 			calendar.createCalendar(list, new Date(calendar.year-1, calendar.month, 1));
@@ -143,19 +161,27 @@ var calendar = {
 }
 
 function myCalendar(){
-	var calendars = document.getElementById("calendar");
+	var calendars = document.getElementById("calendarul");
+	
+	var today = new Date();
+	
+	//displayToday(today);
 
 	calendar.init(calendars);
 
-	//displayToday(new Date().getDay());
 	displayWorkDay();
 	//移动到某一天上，改变样式
-	$("#lastmonthul li, #recentmonthul li, #nextmonthul li").mouseover(function(){
-		$(this).css("fontWeight","bold").mouseout(function(){
-			$(this).css("fontWeight","none");
+		$("#lastmonthul li").mouseover(function(){
+			$(this).css("fontWeight","bold");
 		});
-	});
+		$("#lastmonthul li").mouseout(function(){
+			$(this).css("fontWeight","thin");
+		});
+	
 	//点击某一天，改变样式
+	$("#recentmonthul li").click(function(){
+		$(this).addClass('selectday').siblings('li').removeClass('selectday');
+	});
 }
 
 //获得时间
@@ -182,13 +208,13 @@ function checkTime(i){
 };
 
 //显示今天
-/*function displayToday(num){
+function displayToday(num){
 	var nowMonth = document.getElementById("recentmonthul");
 	var nowDate = nowMonth.getElementsByTagName("li");
 	nowDate[num-1].style.color = "white";
 	nowDate[num-1].style.background = "#9FEE00";
 }
-*/
+
 //在日历上区分工作日和休息日
 function displayWorkDay(){
 	var allDates = document.getElementById("weekday");
@@ -196,7 +222,6 @@ function displayWorkDay(){
 	for (var i = 0; i < weekdays.length; i++) {
 		if(i%7 == 0 || i%7 == 6){
 			weekdays[i].style.color = "#FF7300";
-			//weekdays[i].style.backgroundColor = "#9FEE00";
 		}
 	};
 }
