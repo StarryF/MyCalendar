@@ -5,47 +5,63 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li, a{
 	list-style: none;
 	text-decoration: none;
 	font-family: 'Microsoft YaHei', Verdana;
+	/*normal 14px/1.6 "Helvetica neue", "Segoe UI", Arial, "Microsoft Jhenghei", "Microsoft Yahei", Sans-serif*/
 }
 
 #page{
-	width: 49em;
-	margin: 0.2em auto;
+	width: 60%;
+	margin: 0.2% auto;
+}
+/*
+@media screen and (max-device-width: 1024px){
+	#page{
+		width: 90%;
+		margin: 0.2% auto;
+	}
 }
 
+@media screen and (max-device-width: 600px) {
+	#page{
+		width: 100%;
+		margin: 0.2% auto;
+	}
+}
+*/
 #header{
 	position:relative;
 	height: 6em;
 	background-color: #B9F73E;
-	z-index: 3;
+	/*z-index: 3;*/
 }
 /*显示月份和当前时间*/
 #displaymonth{
 	float: left;	
-	width: 20em;
+	width: 40%;
 }
 
 #display{
 	display: block;
 	float: left;
+	width: 100%;
 	list-style: none;
-	padding: 0.3em 0;
+	padding: .3% 0;
 }
 
 /*显示当前月份*/
 #monthnow{
 	float: left;
 	display: block;
-	width: 2.6em;
-	padding-left: .8em;
-	line-height: 1em;
-	font-weight: 900;
-	font-size: 4em;
+	width: 70%;
+	line-height: 80%;
+	padding-left: 10%;
+	font-weight: 900%;
+	font-size: 400%;
 }
 
 /*显示当前时间*/
 #timenowli{
 	float: left;
-	margin-top: 2.5em;
+	margin-top: 10%;
 	display: block;
 	font-size: 1.5em;
 	font-weight: 200;
@@ -56,35 +72,34 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li, a{
 /*显示年、月、和返回今天，并可供选择*/
 #selectmonth{
 	float: left;
-	width: 29em;
-	height: 6em;
+	width: 60%;
+	/*height: 6em;*/
 }
 
 /*显示年、月和返回今天的列表*/
 #selectdate{
-	width: 29em;
-	margin-left: 2em;
+	margin-left: 2%;
 	display: block;
-	margin-top: 4em;
+	margin-top: 7%;
 
 }
-
 #selectdate li.larrow{
 	float: left;
 	display: block;
-	margin-left: 2em;
+	margin-left: 2%;
 }
 
 #selectdate li.today{
 	float: left;
 	display: block;
-	width: 5em;
-	margin-left: 2em;
+	width: 30%;
+	text-align: center;
+	font-size: 80%;
 }
 
 #selectdate li.select{
 	float: left;
-	width: 5em;
+	width: 25%;
 	height: 1.5em;
 	display: block;
 	text-align: center;
@@ -141,11 +156,16 @@ ul li.select ul.alistof li{
 	z-index: 1;
 }
 
+#middle ul{
+	margin: auto;
+}
+
 #middle .weektitle li, li li{
 	display: block;
 	float: left;
-	width: 6.5em;
-	margin: 0.3em 0 0 0.3em;
+	width: 13.4%;
+	height: 5%;
+	margin: 0.2% 0 0 0.2%;
 	box-shadow: 0 0 3px #008500;
 	border-bottom-right-radius: 10px;
 }
@@ -155,13 +175,12 @@ ul li.select ul.alistof li{
 	color: #008500;
 	font-weight: bold;
 	text-align: center;
-	line-height: 2em;
 	background-color: #67E667;
 	border: .1em solid white;
 }
 
 #middle ul.calendar{
-	width: 49em;
+	/*width: 60%;*/
 	color: #9FEE00;
 	margin: 0 auto;
 	display: block;
@@ -169,7 +188,7 @@ ul li.select ul.alistof li{
 }
 
 #middle li li{
-	height: 6.5em;
+	/*height: 6.5em;*/
 	border: .1em solid #67E667;
 }
 
@@ -177,7 +196,7 @@ ul li.select ul.alistof li{
 	font-size: 1.2em;
 	text-align: center;
 	display: block;
-	line-height: 4.8em;
+	/*line-height: 4.8em;*/
 	padding: .2em;
 }
 
@@ -187,4 +206,8 @@ ul li.select ul.alistof li{
 
 #middle #nextmonthul li{
 	opacity: 0.4;
+}
+
+.selectday {
+	background-color: #00F;
 }

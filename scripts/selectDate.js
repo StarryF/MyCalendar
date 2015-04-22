@@ -47,8 +47,8 @@ function displayMonthList(node, nodeUl){
   bool：-1表示左箭头，0，表示数字，1表示右箭头
 */
 function clickArrow(nodeUl, node, bool){
-	for (var i = 0; i < nodeUl.length; i++) {
-		var x = node.innerHTML;
+	var x = node.innerHTML;
+	for (var i = 0; i < nodeUl.length; i++) {	
 		nodeUl[i].onclick = function(){
 			switch (bool){
 				case -1:
@@ -94,10 +94,6 @@ function displayFocusDay(nodeUl){
 		nodeUl[i].onmouseout = function(){
 			this.style.fontWeight = "normal";
 		}
-		nodeUl[i].onclick = function(){
-			this.style.border = "solid";
-			this.style.width = "6.3em";
-			this.style.height = "6.2em";
-		}
 	};
 }
+
