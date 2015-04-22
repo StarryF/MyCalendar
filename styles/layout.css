@@ -129,6 +129,9 @@ ul li.select ul.alistof li{
 	width: 4em;
 	height: 1.5em;
 	float: none !important;
+	margin: 0;
+	box-shadow: none;
+	border-bottom-right-radius: 0px; 
 }
 
 /*页中部分，显示日历的主体*/

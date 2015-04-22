@@ -21,6 +21,9 @@
 		var month = today.getMonth() + 1;		//月 1-12
 		var day = today.getDate();	//日
 
+
+		//显示年份
+		document.getElementById("yeardrop").innerHTML = year;
 		//显示月份
 		document.getElementById("monthnow").innerHTML = "Apr.";
 		var monthLen = getMonthLength(year, month);//当前月份的天数
@@ -42,7 +45,7 @@
 			displayLastMonth(nextMonthDays1, nextMonthUl);
 		}else{
 			displayMonth(nextMonthDays2, nextMonthDays2, nextMonthUl);
-			displayLastMonth(nextMonthDays1, nextMonthUl);
+			displayLastMonth(nextMonthDays2, nextMonthUl);
 		}
 		
 		displayToday(day);
@@ -60,19 +63,18 @@
 		displayMonthList(clickMonth, monthList);
 
 		//移动过去改变li样式
-		var calendarList = document.getElementById("recentmonthul").getElementsByTagName("li");
-		//whilemouseover(calendarList);
-		calendarList[10].onclick = function(event){  
-    		alert(event.type);  
-		};
+		var recentMonthList = document.getElementById("recentmonthul").getElementsByTagName("li");
+		
+		displayFocusDay(lastMonthUl.getElementsByTagName("li"));
+		displayFocusDay(recentMonthList);
+		displayFocusDay(nextMonthUl.getElementsByTagName("li"));
 
-		//whilemouseover(calendarList);
-
-		$(".recentmonthul li").each(calendarList, function(i, value){
-			this;
-			alert(i);
-			alert(value);
-		})
+		//点击箭头
+		var leftArrow = document.getElementsByClassName("larrow");
+		var rightArrow = document.getElementsByClassName("arrow");
+		var yearDrop = document.getElementById("yeardrop");
+		clickArrow(leftArrow, yearDrop, -1);
+		clickArrow(rightArrow, yearDrop, 1);
 	};
 
 	function checkTime(i){

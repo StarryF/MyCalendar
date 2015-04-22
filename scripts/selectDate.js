@@ -41,7 +41,29 @@ function displayMonthList(node, nodeUl){
 };
 
 
-//当点击左右按钮时，数字加1，并改变日历的显示
+/*当点击左右按钮时，数字加1，并改变日历的显示
+  node：箭头元素
+  num: 需要改变的数字
+  bool：-1表示左箭头，0，表示数字，1表示右箭头
+*/
+function clickArrow(nodeUl, node, bool){
+	for (var i = 0; i < nodeUl.length; i++) {
+		var x = node.innerHTML;
+		nodeUl[i].onclick = function(){
+			switch (bool){
+				case -1:
+					node.innerHTML = x--;
+					break;
+				case 0:
+					num;
+					break;
+				case 1:
+					node.innerHTML = x++;
+					break;
+			}
+		}
+	}
+}
 
 
 //将当鼠标移动到上个月或下个月的任何一天上时，去除当前的半透明效果
@@ -61,27 +83,21 @@ function displayLastMonth(num, nodeUl){
 	}
 };
 
-/*当鼠标移动到某一天上时，改变li的样式
+/*当鼠标移动到某一天上，改变li的样式
   nodeUl: li s
 */
-function whilemouseover(node){
-	node.addEventListener("mouseover", function(event){
-		alert(event.type);
-	},false);
+function displayFocusDay(nodeUl){
+	for (var i = 0; i < nodeUl.length; i++) {
+		nodeUl[i].onmouseover = function(){
+			this.style.fontWeight = "bold";
+		}
+		nodeUl[i].onmouseout = function(){
+			this.style.fontWeight = "normal";
+		}
+		nodeUl[i].onclick = function(){
+			this.style.border = "solid";
+			this.style.width = "6.3em";
+			this.style.height = "6.2em";
+		}
+	};
 }
-
-
-var handler = function(event){
-	switch(event.type){
-		case "click":
-			alert("clicked");
-			break;
-		case "mouseover":
-			alert("mouseover");
-			break;
-		case "mouseout":
-			alert("mouseout");
-	}
-}
-
-//当鼠标点击某一天时，改变li样式
