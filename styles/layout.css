@@ -29,12 +29,11 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li, a{
 }
 
 #header{
-	position:relative;
+	color: #95A300;
 	width: 100%;
 	background-color: #B9F73E;
 	border-radius: 10px;
 	height: 20%;
-	z-index: 3;
 }
 /*显示月份和当前时间*/
 #displaymonth{
@@ -116,7 +115,7 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li, a{
 	display: block;
 	width: 40%;
 	margin-right: 35%;
-	text-align: center;
+	text-align: center;	
 }
 
 #selectdate li.select{
@@ -134,17 +133,6 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li, a{
 	text-align: center;
 }
 
-/*显示年份、月份*/
-#yearlist, #monthlistul{
-	display: none;
-	margin-top: 0.2em;
-}
-
-#monthlistul li{
-	display: block;
-	margin-left: 0.5em;
-}
-
 .select a, .today a{
 	color: #A7A7A7;
 	font-weight: bold;
@@ -154,15 +142,52 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li, a{
 	color: #008500;
 }
 
-/*显示年份、月份的列表*/
-.alistof{
+/*隐藏年份、月份*/
+#yearlist, #monthlistul{
+	display: none;
+	margin-top: 0.2em;
+	position: relative;
+	z-index: 3;
 	height: 18em;
 	width: 5.1em;
 	overflow: auto;
-	z-index: 100;
+	color: #A7A7A7;
 }
 
-ul li.select ul.alistof li{
+#yearlist a, #monthlistul a{
+	color: #A7A7A7;
+	font-weight: bold;
+}
+
+#yearlist li, #monthlistul li{
+	display: block;;
+	margin-left: 0.5em;
+}
+/*
+#monthlistul li{
+	display: block;
+	margin-left: 0.5em;
+}
+
+/*显示年份、月份的列表*/
+/*#yearlist{
+	position: relative;
+	z-index: 1;
+	height: 18em;
+	width: 5.1em;
+	overflow: auto;
+}
+#monthlistul{
+	position: relative;
+	z-index: 1;
+	height: 18em;
+	width: 5.1em;
+	overflow: auto;
+}
+
+*/
+
+ul.alistof li{
 	text-align: center;
 	background-color: #C9F76F;
 	width: 4em;
@@ -171,13 +196,13 @@ ul li.select ul.alistof li{
 	margin: 0;
 	box-shadow: none;
 	border-bottom-right-radius: 0px; 
+	position: relative;
+	z-index: 4;
 }
 
 /*页中部分，显示日历的主体*/
 /*显示星期*/
 #middle{
-	position:relative;
-	z-index: 1;
 	width: 100%;
 }
 

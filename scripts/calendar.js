@@ -88,18 +88,38 @@ var calendar = {
 		$("#nextmonth").click(function(){
 			calendar.createCalendar(list, new Date(calendar.year, calendar.month+1, 1));
 		});
-
+		//返回今天
 		$("#returntoday").click(function(){
 			calendar.createCalendar(list, new Date());
 			calendar.displayToday(new Date().getDate());
 		});
+
+		//鼠标点击年份
+		var clickYear = document.getElementById("yeardrop");
+		var yearList = document.getElementById("yearlist");
+		calendar.displayList(clickYear, yearList);
+
+		//鼠标点击月份
+		var clickMonth = document.getElementById("monthdrop");
+		var monthList = document.getElementById("monthlistul");
+		calendar.displayList(clickMonth, monthList);
+
+		//点击月份列表的某个月份，刷新日历
+		$("#monthlistul li a").click(function(){
+			var newMonth = $(this).text()-1;
+			calendar.createCalendar(list, new Date(calendar.year, newMonth, 1));
+			monthList.style.display = "none";
+		});
+
+		//点击年份列表的某个年份，刷新日历
+		$("#yearlist li a").click(function(){
+			var newYear = $(this).text();
+			calendar.createCalendar(list, new Date(newYear, calendar.month, 1));
+			yearList.style.display = "none";
+		});
 	},
 
-	/*辅助方法一：显示年列表
-	  node: 被点击的节点
-	  num: 当前年份
-	  nodeUl： 显示列表的父节点
-	*/
+	//辅助方法一：显示年列表
 	displayYearList:function(node, nodeUl, num){
 		node.onclick = function(){
 			for (var i = num - 10; i < num + 10; i++) {
@@ -124,8 +144,8 @@ var calendar = {
 		}
 	},
 
-	//辅助方法二：显示月份列表
-	displayMonthList:function(node, nodeUl){
+	//辅助方法二：显示年份或月份列表
+	displayList:function(node, nodeUl){
 		node.onclick = function(){
 			nodeUl.style.display = "block";
 		};
