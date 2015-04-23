@@ -21,47 +21,59 @@
         
         <div id="selectmonth">
           <ul id="selectdate">
-            <li class="larrow">
-              <a id="lastyear" title="last year" href="#"><img src="images/left.png"/></a>
-            </li>
-            
-            <li class="select"><a id="yeardrop" class="dropdown" href="#"></a>
-              <ul id="yearlist" class="alistof">
+          	<li id="firstrow">
+              <ul id="firstul">
+                <li class="arrow">
+                  <a id="nextyear" title="next year" href="#"><img src="images/right.png"/></a>
+                </li>
+              
+                <li class="select"><a id="yeardrop" class="dropdown" href="#"></a>
+                  <ul id="yearlist" class="alistof">
+                  </ul>
+                </li>
+              	<li class="larrow">
+                  <a id="lastyear" title="last year" href="#"><img src="images/left.png"/></a>
+                </li>
+                
               </ul>
             </li>
             
-            <li class="arrow">
-              <a id="nextyear" title="next year" href="#"><img src="images/right.png"/></a>
+            <li id="secondrow">
+              <ul>
+              	<li class="arrow">
+                  <a id="nextmonth" title="next month" href="#"><img src="images/right.png"/></a>
+                </li>
+                
+                <li class="select"><a id="monthdrop" class="dropdown" href="#">5月</a>
+                  <ul id="monthlistul" class="alistof">
+                    <li><a href="#">1<span>月</span></a></li>
+                    <li><a href="#">2<span>月</span></a></li>
+                    <li><a href="#">3<span>月</span></a></li>
+                    <li><a href="#">4<span>月</span></a></li>
+                    <li><a href="#">5<span>月</span></a></li>
+                    <li><a href="#">6<span>月</span></a></li>
+                    <li><a href="#">7<span>月</span></a></li>
+                    <li><a href="#">8<span>月</span></a></li>
+                    <li><a href="#">9<span>月</span></a></li>
+                    <li><a href="#">10<span>月</span></a></li>
+                    <li><a href="#">11<span>月</span></a></li>
+                    <li><a href="#">12<span>月</span></a></li>
+                  </ul>
+                </li>
+                <li class="larrow">
+                  <a id="lastmonth" title="last month" href="#"><img src="images/left.png"/></a>
+                </li>
+               
+              </ul>   
             </li>
             
-            <li class="larrow">
-              <a id="lastmonth" title="last month" href="#"><img src="images/left.png"/></a>
-            </li>
-            
-            <li class="select"><a id="monthdrop" class="dropdown" href="#">5月</a>
-              <ul id="monthlistul" class="alistof">
-                <li><a href="#">1<span>月</span></a></li>
-                <li><a href="#">2<span>月</span></a></li>
-                <li><a href="#">3<span>月</span></a></li>
-                <li><a href="#">4<span>月</span></a></li>
-                <li><a href="#">5<span>月</span></a></li>
-                <li><a href="#">6<span>月</span></a></li>
-                <li><a href="#">7<span>月</span></a></li>
-                <li><a href="#">8<span>月</span></a></li>
-                <li><a href="#">9<span>月</span></a></li>
-                <li><a href="#">10<span>月</span></a></li>
-                <li><a href="#">11<span>月</span></a></li>
-                <li><a href="#">12<span>月</span></a></li>
+            <li id="thirdrow">
+              <ul>
+              	<li class="today">
+             	  <a id="returntoday" href="#">返回今天</a>
+                </li>
               </ul>
-            </li>
-            
-            <li class="arrow">
-              <a id="nextmonth" title="next month" href="#"><img src="images/right.png"/></a>
-            </li>
-            
-            <li class="today">
-              <a id="returntoday" href="#">返回今天</a>
-            </li>
+            </li>      
           </ul>         
         </div>
   	  </div><!--end of the header wrapper-->
@@ -82,7 +94,7 @@
   	  	  </div>
 
   	  	  <div id="weekday">
-            <ul id="calendarul" class="calendar" start="4">
+            <ul id="calendarul" class="calendar">
               <li id="lastmonth">
               	<ul id="lastmonthul">
                 </ul>
@@ -102,13 +114,6 @@
   	  	</div><!--end of the main wrapper-->
   	  </div><!--end of the middle wrapper-->
   	</div><!--end of the page wrapper-->
-  <!--  
-    
-    
-    <script src="scripts/displayCalendar.js" type="text/javascript"></script>
-    <script src="scripts/selectDate.js" type="text/javascript"></script>
-    <script src="scripts/others.js" type="text/javascript"></script>
-  -->
     <script src="scripts/addLoadEvent.js" type="text/javascript"></script>
   	<script src="scripts/jquery.js" type="text/javascript"></script>
     <script src="scripts/calendar.js" type="text/javascript"></script>
