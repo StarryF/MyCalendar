@@ -21,16 +21,16 @@ var calendar = {
 	//创建日历
 	createCalendar:function(list, date){
 		calendar.year = date.getFullYear();	//获得年份
-		calendar.month = date.getMonth() + 1;	//获得月份
+		calendar.month = date.getMonth();	//获得月份
 		calendar.clearCalendar(list);
 
 		document.getElementById("yeardrop").innerHTML = calendar.year + "年";
-		document.getElementById("monthdrop").innerHTML = calendar.month + "月";
-		document.getElementById("monthnow").innerHTML = calendar.month + "月";
+		document.getElementById("monthdrop").innerHTML = calendar.month+1+ "月";
+		document.getElementById("monthnow").innerHTML = calendar.month+1 + "月";
 
-		var lastMonthLen = calendar.getMonthLength(calendar.year, calendar.month-1);
-		var monthLen = calendar.getMonthLength(calendar.year, calendar.month);
-		var firstDay = calendar.getFirstDay(calendar.year, calendar.month);
+		var lastMonthLen = calendar.getMonthLength(calendar.year, calendar.month);
+		var monthLen = calendar.getMonthLength(calendar.year, calendar.month+1);
+		var firstDay = calendar.getFirstDay(calendar.year, calendar.month+1);
 		var next1 = 35 - monthLen - firstDay;
 		var next2 = 42 - monthLen - firstDay;
 
@@ -48,32 +48,31 @@ var calendar = {
 			calendar.displayMonth(next2, next2, nextMonthUl);
 			calendar.displayOtherMonth(next2, nextMonthUl);
 		}
+
+		calendar.displayWorkDay();
+		calendar.displayFocusDay(lastMonthUl.getElementsByTagName("li"));
+		calendar.displayFocusDay(recentMonthUl.getElementsByTagName("li"));
+		calendar.displayFocusDay(nextMonthUl.getElementsByTagName("li"));
+		//点击某一天，改变样式
+		$("#recentmonthul li").click(function(){
+			$(this).addClass('selectday').siblings('li').removeClass('selectday');
+		});
 	},
 
 	//清空日历
 	clearCalendar:function(list){
-		this.clist = list.getElementsByTagName("li");
-		var li1 = this.clist["lastmonth"];	//lastmonth
-		var li2 = this.clist["thismonth"];	//thismonth
-		var li3 = this.clist["nextmonth"];	//nextmonth
-		alert(this.clist.length);
-		var ul1 = li1.getElementsByTagName("lastmonthul");	//lastmonthul
-		var ul2 = li2.getElementsByTagName("recentmonthul");	//recentmonthul
-		var ul3 = li3.getElementsByTagName("nextmonthul");	//nextmonthul
-		var $ul1 = $(ul1);
-		var $ul2 = $(ul2);
-		var $ul3 = $(ul3);
-		$ul1.remove();
-		$ul2.remove();
-		$ul3.remove();
-		alert("ok");
-		
+		document.getElementById("lastmonthul").innerHTML = "";
+		document.getElementById("recentmonthul").innerHTML = "";
+		document.getElementById("nextmonthul").innerHTML = "";
 	},
 
 	//主方法
 	init:function(list){
+		//初始化日历
 		calendar.createCalendar(list, new Date());
+		calendar.displayToday(new Date().getDate());
 		//左年键，减去一年，重绘日历
+
 		$("#lastyear").click(function(){
 			calendar.createCalendar(list, new Date(calendar.year-1, calendar.month, 1));
 		});
@@ -88,6 +87,11 @@ var calendar = {
 		//右月键，加上一月，重绘日历
 		$("#nextmonth").click(function(){
 			calendar.createCalendar(list, new Date(calendar.year, calendar.month+1, 1));
+		});
+
+		$("#returntoday").click(function(){
+			calendar.createCalendar(list, new Date());
+			calendar.displayToday(new Date().getDate());
 		});
 	},
 
@@ -158,30 +162,45 @@ var calendar = {
 			node.appendChild(li);
 		}
 	},
+
+	//辅助方法五：区分工作日和休息日
+	displayWorkDay:function(){
+		var allDates = document.getElementById("weekday");
+		var weekdays = allDates.getElementsByTagName("span");
+		for (var i = 0; i < weekdays.length; i++) {
+			if(i%7 == 0 || i%7 == 6){
+				weekdays[i].style.color = "#FF7300";
+			}
+		};
+	},
+
+	//辅助方法六：显示今天
+	displayToday:function(num){
+		var nowMonth = document.getElementById("recentmonthul");
+		var nowDate = nowMonth.getElementsByTagName("li");
+		nowDate[num-1].style.color = "white";
+		nowDate[num-1].style.background = "#9FEE00";
+	},
+
+	//辅助方法七，当鼠标移动到某天上时，改变样式
+	displayFocusDay:function(nodeUl){
+		for (var i = 0; i < nodeUl.length; i++) {
+			nodeUl[i].onmouseover = function(){
+				this.style.fontWeight = "bold";
+			}
+			nodeUl[i].onmouseout = function(){
+				this.style.fontWeight = "normal";
+			}
+		};
+	},
 }
 
 function myCalendar(){
 	var calendars = document.getElementById("calendarul");
 	
 	var today = new Date();
-	
-	//displayToday(today);
 
 	calendar.init(calendars);
-
-	displayWorkDay();
-	//移动到某一天上，改变样式
-		$("#lastmonthul li").mouseover(function(){
-			$(this).css("fontWeight","bold");
-		});
-		$("#lastmonthul li").mouseout(function(){
-			$(this).css("fontWeight","thin");
-		});
-	
-	//点击某一天，改变样式
-	$("#recentmonthul li").click(function(){
-		$(this).addClass('selectday').siblings('li').removeClass('selectday');
-	});
 }
 
 //获得时间
@@ -206,25 +225,5 @@ function checkTime(i){
 		return i;
 	}
 };
-
-//显示今天
-function displayToday(num){
-	var nowMonth = document.getElementById("recentmonthul");
-	var nowDate = nowMonth.getElementsByTagName("li");
-	nowDate[num-1].style.color = "white";
-	nowDate[num-1].style.background = "#9FEE00";
-}
-
-//在日历上区分工作日和休息日
-function displayWorkDay(){
-	var allDates = document.getElementById("weekday");
-	var weekdays = allDates.getElementsByTagName("span");
-	for (var i = 0; i < weekdays.length; i++) {
-		if(i%7 == 0 || i%7 == 6){
-			weekdays[i].style.color = "#FF7300";
-		}
-	};
-}
-
 addLoadEvent(getTimeNow);
 addLoadEvent(myCalendar);

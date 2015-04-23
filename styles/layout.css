@@ -209,5 +209,6 @@ ul li.select ul.alistof li{
 }
 
 .selectday {
-	background-color: #00F;
+	background-color: #FFFF73;
+	border-radius: 10px;
 }
