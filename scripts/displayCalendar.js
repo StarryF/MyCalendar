@@ -12,8 +12,17 @@
 		minute = checkTime(minute);
 		second = checkTime(second);		
 		document.getElementById("timenow").innerHTML = hour + ":" + minute + ":" + second;
-		//setTimeout("getTimeNow()",1000);	//每秒加载一次getTimeNow函数
-		
+		setTimeout("getTimeNow()",1000);	//每秒加载一次getTimeNow函数		
+	};
+
+	function getDateNow(){
+		var today = new Date();
+		var year = today.getFullYear();	//年
+		var month = today.getMonth() + 1;		//月 1-12
+		var day = today.getDate();	//日
+
+		//显示月份
+		document.getElementById("monthnow").innerHTML = month + "月";
 		var monthLen = getMonthLength(year, month);//当前月份的天数
 		//alert(monthLen);
 		var lastMonthLen = getMonthLength(year, month-1);//上个月的最后一天
@@ -26,9 +35,16 @@
 		var recentMonthUl = document.getElementById("recentmonthul");
 		displayMonth(monthLen, monthLen, recentMonthUl);
 		var nextMonthUl = document.getElementById("nextmonthul");
-		var nextMonthDays = 35 - monthLen - firstDayWeek;
-		//alert(nextMonthDays);
-		displayMonth(nextMonthDays, nextMonthDays, nextMonthUl);
+		var nextMonthDays1 = 35 - monthLen - firstDayWeek;
+		var nextMonthDays2 = 42 - monthLen - firstDayWeek;
+		if ((firstDayWeek+monthLen)< 35) {
+			displayMonth(nextMonthDays1, nextMonthDays1, nextMonthUl);
+		}else{
+			displayMonth(nextMonthDays2, nextMonthDays2, nextMonthUl);
+		}
+		
+		displayToday(day);
+		//displayWorkDay();
 	};
 
 	function checkTime(i){
@@ -71,5 +87,25 @@
 		}
 	};
 
+	//在日历上显示当前日期
+	function displayToday(num){
+		var nowMonth = document.getElementById("recentmonthul");
+		var nowDate = nowMonth.getElementsByTagName("li");
+		nowDate[num-1].style.backgroundColor = "red";
+	}
+
+	//在日历上区分工作日和休息日
+	function displayWorkDay(){
+		var allDates = document.getElementById("weekday");
+		var weekdays = allDates.getElementsByTagName("span");
+		for (var i = 0; i < weekdays.length; i++) {
+			if(i%7 == 0 || i%7 == 6){
+				weekdays[i].style.backgroundColor = "yellow";
+			}
+		};
+	}
+
 //addLoadEvent(getMonthLength);
 addLoadEvent(getTimeNow);
+addLoadEvent(getDateNow);
+addLoadEvent(displayWorkDay);

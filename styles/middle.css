@@ -100,4 +100,11 @@ ul li ul li span{
 	padding: .2em;
 	float: none;
 }
-	
+
+#lastmonthul li{
+	opacity: 0.4;
+}
+
+#nextmonthul li{
+	opacity: 0.4;
+}
