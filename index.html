@@ -21,9 +21,9 @@
   	  	<div id="upper"><!--start of the upper wrapper-->
   	  	  <div id="month">
             <ul id="displaymonth">
-              <li>五月</li>
+              <li id="monthnow">四月</li>
               <li>北京时间</li>
-              <li>[12:24:00]</li>
+              <li><span id="timenow"></span></li>
             </ul>
           </div>
           
@@ -74,52 +74,17 @@
   	  	  <div id="weekday">
             <ul class="calendar" start="4">
               <li id="lastmonth">
-              	<ul start="29">
-                  <li><p>30号</p></li>
-                  <li><p>31号</p></li>
+              	<ul id="lastmonthul">
                 </ul>
               </li>
               
               <li id="thismonth">
-  	  	  	    <ul>
-                  <li><p>1号</p></li>
-                  <li><p>2号</p></li>
-                  <li><p>3号</p></li>
-                  <li><p>4号</p></li>
-                  <li><p>5号</p></li>
-                  <li><p>6号</p></li>
-                  <li><p>7号</p></li>
-                  <li><p>8号</p></li>
-                  <li><p>9号</p></li>
-                  <li><p>10号</p></li>
-                  <li><p>11号</p></li>
-                  <li><p>12号</p></li>
-                  <li><p>13号</p></li>
-                  <li><p>14号</p></li>
-                  <li><p>15号</p></li>
-                  <li><p>16号</p></li>
-                  <li><p>17号</p></li>
-                  <li><p>18号</p></li>
-                  <li><p>19号</p></li>
-                  <li><p>20号</p></li>
-                  <li><p>21号</p></li>
-                  <li><p>22号</p></li>
-                  <li><p>23号</p></li>
-                  <li><p>24号</p></li>
-                  <li><p>25号</p></li>
-                  <li><p>26号</p></li>
-                  <li><p>27号</p></li>
-                  <li><p>28号</p></li>
-                  <li><p>29号</p></li>
-                  <li><p>30号</p></li>
+  	  	  	    <ul id="recentmonthul">
                 </ul>
               </li>
               
               <li id="nextmonth">
-              	<ul>
-                  <li><p>1号</p></li>
-                  <li><p>2号</p></li>
-                  <li><p>3号</p></li>
+              	<ul id="nextmonthul">
                 </ul>
               </li>
   	  	  	</ul>
@@ -130,5 +95,7 @@
   	  <div id="footer"><!--start of the footer wrapper-->
   	  </div><!--end of the footer wrapper-->
   	</div><!--end of the page wrapper-->
+    <script src="scripts/addLoadEvent.js" type="text/javascript"></script>
+    <script src="scripts/upper.js" type="text/javascript"></script>
   </body>
 </html>

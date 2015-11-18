@@ -90,9 +90,8 @@ li li{
 }
 
 
-ul li ul li p{
+ul li ul li span{
 	text-align: center;
-	font-size: .7em;
 	display: block;
 	height: auto;
 	width: auto;
